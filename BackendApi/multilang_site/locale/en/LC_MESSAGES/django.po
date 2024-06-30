@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-30 22:22+0200\n"
-"PO-Revision-Date: 2024-06-30 22:23+0000\n"
+"PO-Revision-Date: 2024-07-01 00:04+0000\n"
 "Last-Translator:   <sample@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -41,20 +41,20 @@ msgstr ""
 
 #: .\templates\home.html:15
 msgid "herotitle"
-msgstr ""
+msgstr "Blog Post Multi Languages"
 
 #: .\templates\home.html:23
 msgid "ago"
-msgstr ""
+msgstr "ago"
 
 #: .\templates\navbar.html:5
 msgid "navbar"
-msgstr ""
+msgstr "Blog Multi-lang"
 
 #: .\templates\navbar.html:12
 msgid "navbarhome"
-msgstr ""
+msgstr "Home"
 
 #: .\templates\navbar.html:15
 msgid "navbarfeatures"
-msgstr ""
+msgstr "Chat-Bot"

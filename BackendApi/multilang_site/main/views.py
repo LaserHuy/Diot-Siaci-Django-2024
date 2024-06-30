@@ -5,7 +5,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings  # Add this line
-from .serializers import *
 from .models import *
 
 # Create your views here.
@@ -13,8 +12,7 @@ from .models import *
 
 def home(request):
     posts = Post.objects.all()
-    serializer = PostSerializer(posts, many=True)
-    return render(request, 'home.html', {'posts': serializer.data})
+    return render(request, 'home.html', {'posts': posts})
 
 
 def set_language(request):

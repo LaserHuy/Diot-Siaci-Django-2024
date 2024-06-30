@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rosetta',
+    'parler',
 ]
 
 MIDDLEWARE = [
@@ -111,6 +112,17 @@ LANGUAGE = [
     ('en', _('English')),
     ('fr', _('French')),
 ]
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en',},
+        {'code': 'fr',},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
 
 LANGUAGE_CODE = 'en'
 

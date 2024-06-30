@@ -27,7 +27,7 @@
                             {% for language in languages %}
                                 {% if language.code == 'en' or language.code == 'fr' %}
                                     <li>
-                                        <a class="dropdown-item {% if language.code == CURRENT_LANGUAGE %}active{% endif %}" href="{% if language.code == 'en' %}/{% else %}/{{ language.code }}/{% endif %}">{{ language.name_local }}</a>
+                                        <a class="dropdown-item {% if language.code == CURRENT_LANGUAGE %}active{% endif %}" href="{% if language.code == 'en' %}/en/{% else %}/{{ language.code }}/{% endif %}">{{ language.name_local }}</a>
                                     </li>
                                 {% endif %}
                             {% endfor %}
