@@ -9,31 +9,31 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-30 22:22+0200\n"
-"PO-Revision-Date: 2024-06-30 22:24+0000\n"
+"PO-Revision-Date: 2024-06-30 22:23+0000\n"
 "Last-Translator:   <sample@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: .\main\models.py:6
 msgid "title"
-msgstr "Titre"
+msgstr "Title"
 
 #: .\main\models.py:7
 msgid "content"
-msgstr "Contenu"
+msgstr "Content"
 
 #: .\multilang_site\settings.py:111
 msgid "English"
-msgstr "Anglaise"
+msgstr "English"
 
 #: .\multilang_site\settings.py:112
 msgid "French"
-msgstr "Française"
+msgstr "French"
 
 #: .\templates\base.html:4
 msgid "dir"

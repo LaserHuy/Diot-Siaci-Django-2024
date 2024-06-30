@@ -1,3 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    /* padding: 2rem; */
+    /* text-align: center; */
+}
+  
+body {
+    background-color: #0E1217;
+}
+
+.landingpage {
+    margin: 0 auto;
+    padding: 0 80px;
+    position: relative;
+    max-width: 1280px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* background-color: transparent; */
+}
+
+.landingpage::before {
+    content: "";
+    position: absolute;
+    width: 123px;
+    height: 123px;
+    left: 60%;
+    top: 138px;
+    filter: blur(90px);
+    background-color: #FB37FF;
+}
+
+.landingpage::after {
+    content: "";
+    position: absolute;
+    width: 123px;
+    height: 123px;
+    left: 80%;
+    top: 550px;
+    background-color: #18B2DE;
+    filter: blur(80px);
+}
