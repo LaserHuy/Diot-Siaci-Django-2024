@@ -154,6 +154,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Whoosh index location
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WHOOSH_INDEX = os.path.join(BASE_DIR, 'whoosh_index')
 
 # Load environment variables from .env file

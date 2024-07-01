@@ -8,7 +8,7 @@ from whoosh import index
 openai.api_key = settings.OPENAI_API_KEY
 
 def home(request):
-    query = request.GET.get('query')
+    query = request.GET.get('query', '')
     posts = Post.objects.all()
 
     if query:
@@ -22,7 +22,7 @@ def home(request):
 
     # Augment results with GPT
     gpt_results = []
-    if posts:
+    if query:
         gpt_results = augment_with_gpt(query, posts)
 
     return render(request, 'home.html', {'posts': posts, 'gpt_results': gpt_results, 'query': query})
