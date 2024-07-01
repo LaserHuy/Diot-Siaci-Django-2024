@@ -2,4 +2,7 @@ Django==5.0.6
 djangorestframework==3.14.0
 django-modeltranslation==0.17.5
 Rosetta==0.9.4
+Gettext==0.1.118
 Django-parler==2.0.1
+Openapi==0.1.118
+Whoosh==2.7.4

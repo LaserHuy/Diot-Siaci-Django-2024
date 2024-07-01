@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rosetta',
     'parler',
+    'whoosh',
+    'openai',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +152,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Whoosh index location
+WHOOSH_INDEX = os.path.join(BASE_DIR, 'whoosh_index')
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Access the environment variables
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
