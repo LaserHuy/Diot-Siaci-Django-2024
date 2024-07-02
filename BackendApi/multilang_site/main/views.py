@@ -9,6 +9,7 @@ openai.api_key = settings.OPENAI_API_KEY
 
 def home(request):
     query = request.GET.get('query', '')
+    post_id = request.GET.get('post_id', None)
     posts = Post.objects.all()
 
     if query:
@@ -17,13 +18,14 @@ def home(request):
             query_parser = MultifieldParser(['title', 'content'], ix.schema)
             parsed_query = query_parser.parse(query)
             results = searcher.search(parsed_query, limit=None)
-            post_ids = [int(result['path'].split('/')[-1]) for result in results]
-            posts = Post.objects.filter(id__in=post_ids)
 
-    # Augment results with GPT
+
     gpt_results = []
+    related_post = Post.objects.filter(id=post_id) if post_id else None
+    # Only show post related to the query
     if query:
-        gpt_results = augment_with_gpt(query, posts)
+        gpt_results = augment_with_gpt(query, related_post)
+
 
     return render(request, 'home.html', {'posts': posts, 'gpt_results': gpt_results, 'query': query})
 

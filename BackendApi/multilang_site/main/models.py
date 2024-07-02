@@ -39,15 +39,20 @@ else:
     ix = index.open_dir(settings.WHOOSH_INDEX)
 
 # Signal to update the Whoosh index when a Post is saved or deleted
-
 @receiver(post_save, sender=Post)
 def update_post_index(sender, instance, **kwargs):
-    writer = ix.writer()
-    writer.update_document(title=instance.title, content=instance.content, path='/post/' + str(instance.id))
-    writer.commit()
+    try:
+        writer = ix.writer()
+        writer.update_document(title=instance.title, content=instance.content, path='/post/' + str(instance.id))
+        writer.commit()
+    except Exception as e:
+        print(f"Error updating index: {e}")
 
 @receiver(post_delete, sender=Post)
 def delete_post_index(sender, instance, **kwargs):
-    writer = ix.writer()
-    writer.delete_by_term('path', '/post/' + str(instance.id))
-    writer.commit()
+    try:
+        writer = ix.writer()
+        writer.delete_by_term('path', '/post/' + str(instance.id))
+        writer.commit()
+    except Exception as e:
+        print(f"Error deleting from index: {e}")
