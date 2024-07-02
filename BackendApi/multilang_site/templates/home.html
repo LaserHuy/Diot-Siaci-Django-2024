@@ -26,9 +26,9 @@
                             <p class="card-text">{{ post.content }}</p>
                             <form method="get" action="{% url 'home' %}" class="mt-3">
                                 <div class="input-group">
-                                    <input type="hidden" name="query" value="{{ post.title }}">
+                                    <input type="hidden" name="title" value="{{ post.title }}">
                                     <input type="hidden" name="post_id" value="{{ post.id }}">
-                                    <input type="text" class="form-control" placeholder="{% trans 'Search related posts' %}" aria-label="{% trans 'Search related posts' %}" aria-describedby="button-addon2">
+                                    <input type="text" name="query" class="form-control" placeholder="{% trans 'Search related posts' %}" aria-label="{% trans 'Search related posts' %}" aria-describedby="button-addon2">
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary" type="submit">{% trans 'Search' %}</button>
                                     </div>
@@ -44,6 +44,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{% trans 'Search Results' %}</h5>
                             <p class="card-text">{% trans 'Query' %}: {{ query }}</p>
+                            <p class="card-text">{% trans 'Based on the article' %}: {{ gpt_results.title }}</p>
                             <p class="card-text">{% trans 'Answer' %}: {{ gpt_results.answer }}</p>
                             <hr>
                             <h5 class="card-title">{% trans 'Related Posts' %}</h5>

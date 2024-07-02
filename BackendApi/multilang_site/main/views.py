@@ -22,7 +22,8 @@ def home(request):
 
     gpt_results = []
     related_post = Post.objects.filter(id=post_id) if post_id else None
-    # Only show post related to the query
+    title = request.GET.get('title', '')
+
     if query:
         gpt_results = augment_with_gpt(query, related_post)
 
@@ -31,9 +32,10 @@ def home(request):
 
 def augment_with_gpt(query, posts):
     documents = "\n\n".join([post.translations.filter(language_code='en').first().content for post in posts if post.translations.filter(language_code='en').exists()])
+    title = posts.first().translations.filter(language_code='en').first().title
     response = openai.Completion.create(
         engine="gpt-3.5-turbo-instruct",
-        prompt=f"Q: {query}\nA: Based on the following documents:\n{documents}\nAnswer:",
+        prompt=f"Q: {query}\n{title}\nA: Based on the following documents:\n{documents}\nAnswer:",
         max_tokens=150,
         n=1,
         stop=None,
@@ -43,4 +45,4 @@ def augment_with_gpt(query, posts):
         presence_penalty=0
     )
     answer = response.choices[0].text.strip()
-    return {'answer': answer, 'posts': posts}
+    return {'answer': answer, 'posts': posts, 'title': title}
